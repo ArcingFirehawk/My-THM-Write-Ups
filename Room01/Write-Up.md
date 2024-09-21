@@ -31,3 +31,7 @@ N/A
 20. `ssh ash@10.10.188.5` with password pikapika.
 22. `cd /home`
 23. `cat roots-pokemon.txt`
+
+## Learned
++ New Tools: DIRB.
++ `locate` command in linux.

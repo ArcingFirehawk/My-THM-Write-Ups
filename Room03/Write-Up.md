@@ -22,5 +22,5 @@
   
 6. `ls` and `cat <file name>` to display the flag.
 
-## Learend
+## Learned
 + Generally, don't use `-V` in Hydra, because it makes the output less readable.
