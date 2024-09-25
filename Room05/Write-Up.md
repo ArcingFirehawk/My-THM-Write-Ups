@@ -1,7 +1,7 @@
 # Pickle Rick
 + Link: https://tryhackme.com/r/room/picklerick
 + Type: Challenge
-
+  
 + Target IP Address: 10.10.162.36
 + AttackBox IP Address: 10.10.139.230
 
@@ -47,7 +47,7 @@
   
 15. `whoami` and `sudo -l` to see what commands the "www-data" user could execute.
 16. `sudo bash -i` to get root access.
-17. Moved to /root, `ls` and found the final ingredient.  
+17. Moved to "/root", `ls`, and found the final ingredient.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room05/Screenshots/08.png)
   
 ## Learned
