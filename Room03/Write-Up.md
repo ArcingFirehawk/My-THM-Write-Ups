@@ -1,5 +1,7 @@
 # Hydra
 + Link: https://tryhackme.com/r/room/hydra
++ Type: Walkthrough
+  
 + Target IP Address: 10.10.50.153
 
 ## Tools

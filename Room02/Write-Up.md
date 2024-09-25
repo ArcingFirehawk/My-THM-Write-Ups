@@ -1,6 +1,8 @@
 # Lesson Learned?
 + Link: https://tryhackme.com/r/room/lessonlearned
-+ Target IP Address: 10.10.9.124 *Differs in some images.
++ Type: Challenge
+  
++ Target IP Address: 10.10.9.124
 
 ## Tools
 + NMAP

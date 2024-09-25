@@ -1,5 +1,7 @@
 # Gotta Catch'em All!
 + Link: https://tryhackme.com/r/room/pokemon
++ Type: Challenge
+  
 + Target IP Address: 10.10.188.5
 
 ## Resources
