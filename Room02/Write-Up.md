@@ -1,8 +1,8 @@
 # Lesson Learned?
-+ Link: https://tryhackme.com/r/room/lessonlearned
++ Description: Have you learned your lesson?
++ Link: https://tryhackme.com/room/lessonlearned
 + Type: Challenge
-  
-+ Target IP Address: 10.10.9.124
++ Completed: 2024-09-12
 
 ## Tools
 + NMAP
@@ -21,14 +21,14 @@
 + https://blog.noncenz.com/posts/lesson-learned/
 
 ## Task 1
-1. Recon: `nmap -sV 10.10.9.124`. Saw that it had the services Apache and OpenSSH open.
+1. Recon: `nmap -sV <Target IP Address>`. Saw that it had the services Apache and OpenSSH open.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room02/Screenshots/1.png)
   
-2. Went to http://10.10.9.124 and inspected the source code. Saw that it uses the POST method.
-3. `dirb http://10.10.9.124`. Didn't find anything useful as it mostly outputted manual pages.
+2. Went to http://<Target IP Address> and inspected the source code. Saw that it uses the POST method.
+3. `dirb http://<Target IP Address>`. Didn't find anything useful as it mostly outputted manual pages.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room02/Screenshots/2.png)
   
-4. Tried `gobuster dir -u http://10.10.9.124 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt` to see if the output would be different; there were no manual pages.
+4. Tried `gobuster dir -u http://<Target IP Address> -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt` to see if the output would be different; there were no manual pages.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room02/Screenshots/3.png)
   
 5. Used OWASP ZAP Automated Scan and found that the website was vulnerable to SQL injection.
@@ -40,7 +40,7 @@
 7. Used Burp Suite to find the login page's query.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room02/Screenshots/6.png)
   
-8. Used `hydra -L /usr/share/wordlists/SecLists/Usernames/Names/malenames-usa-top1000.txt -p qwe 10.10.9.124 http-post-form "/:username=^USER^&password=^PASS^:Invalid username and password."`
+8. Used `hydra -L /usr/share/wordlists/SecLists/Usernames/Names/malenames-usa-top1000.txt -p qwe <Target IP Address> http-post-form "/:username=^USER^&password=^PASS^:Invalid username and password."`
    to get possible usernames.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room02/Screenshots/7.png)
   

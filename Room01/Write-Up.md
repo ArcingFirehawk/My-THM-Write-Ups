@@ -1,22 +1,19 @@
 # Gotta Catch'em All!
-+ Link: https://tryhackme.com/r/room/pokemon
++ Description: This room is based on the original Pokemon series. Can you obtain all the Pokemon in this room?
++ Link: https://tryhackme.com/room/pokemon
 + Type: Challenge
-  
-+ Target IP Address: 10.10.188.5
-
-## Resources
-N/A
++ Completed: 2024-??-??
 
 ## Tools
 + NMAP
 + DIRB
 
 ## Task 1
-1. `nmap -sV 10.10.188.5`
-2. `dirb http://10.10.188.5` *Led to nothing useful.
+1. `nmap -sV <Target IP Address>`
+2. `dirb http://<Target IP Address>` *Led to nothing useful.
 3. Found credentials for the "pokemon" user by looking through the webpage's source code.
 4. `sudo -i`
-5. `ssh pokemon@10.10.188.5` with password hack_the_pokemon.
+5. `ssh pokemon@<Target IP Address>` with password hack_the_pokemon.
 6. `ls -la`
 8. `cd Desktop`
 9. `ls`
@@ -30,7 +27,7 @@ N/A
 17. `cat roots-pokemon.txt`
 18. `cd /Videos/Gotta/Catch/Them/All!`
 19. `cat Could_this_be_what_Im_looking_for\?.cplusplus`
-20. `ssh ash@10.10.188.5` with password pikapika.
+20. `ssh ash@<Target IP Address>` with password pikapika.
 22. `cd /home`
 23. `cat roots-pokemon.txt`
 

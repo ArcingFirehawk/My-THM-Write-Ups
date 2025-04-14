@@ -1,7 +1,7 @@
 # Pickle Rick
 + Link: https://tryhackme.com/r/room/picklerick
 + Type: Challenge
-  
+
 + Target IP Address: 10.10.162.36
 + AttackBox IP Address: 10.10.139.230
 
