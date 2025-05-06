@@ -7,18 +7,18 @@ The purpose of these write-ups is to log my progress with TryHackMe's various ro
 3. Walkthrough - Hydra ([Link](https://tryhackme.com/room/hydra)) 2024-09-08
 4. Walkthrough - Network Services ([Link](https://tryhackme.com/room/networkservices)) 2024-09-21
 5. Challenge - Pickle Rick ([Link](https://tryhackme.com/r/room/networkservices)) 2024-09-25
-6. Walkthrough - What is Networking? ([Link](https://tryhackme.com/room/whatisnetworking)) 2025-02-28
-7. Walkthrough - Networking Concepts ([Link](https://tryhackme.com/room/networkingconcepts)) 2025-03-07
-8. Walkthrough - Secure Network Architecture ([Link](https://tryhackme.com/room/introtosecurityarchitecture)) 2025-03-08
-9. Walkthrough - Enumeration & Brute Force ([Link](https://tryhackme.com/room/enumerationbruteforce)) 2025-03-14
-10. Walkthrough - Pentesting Fundamentals ([Link](https://tryhackme.com/room/pentestingfundamentals)) 2025-03-18
-11. Walkthrough - Vulnerabilities 101 ([Link](https://tryhackme.com/room/vulnerabilities101)) 2025-03-19
-12. Challenge - Brooklyn Nine Nine ([Link](https://tryhackme.com/room/brooklynninenine)) 2025-09-26
-13. Walkthrough - Web Application Security ([Link](https://tryhackme.com/room/introwebapplicationsecurity)) 2024-09-27
-14. Walkthrough - Governance & Regulation ([Link](https://tryhackme.com/room/cybergovernanceregulation)) 2025-04-09
-15. Walkthrough - OWASP Juice Shop ([Link](https://tryhackme.com/room/owaspjuiceshop)) 2025-04-10
+6. Walkthrough - What is Networking? ([Link](https://tryhackme.com/room/whatisnetworking)) 2025-02-28 !!!
+7. Walkthrough - Networking Concepts ([Link](https://tryhackme.com/room/networkingconcepts)) 2025-03-07 !!!
+8. Walkthrough - Secure Network Architecture ([Link](https://tryhackme.com/room/introtosecurityarchitecture)) 2025-03-08 !!!
+9. Walkthrough - Enumeration & Brute Force ([Link](https://tryhackme.com/room/enumerationbruteforce)) 2025-03-14 !!!
+10. Walkthrough - Pentesting Fundamentals ([Link](https://tryhackme.com/room/pentestingfundamentals)) 2025-03-18 !!!
+11. Walkthrough - Vulnerabilities 101 ([Link](https://tryhackme.com/room/vulnerabilities101)) 2025-03-19 !!!
+12. Challenge - Brooklyn Nine Nine ([Link](https://tryhackme.com/room/brooklynninenine)) 2025-09-26 !!!
+13. Walkthrough - Web Application Security ([Link](https://tryhackme.com/room/introwebapplicationsecurity)) 2024-09-27 !!!
+14. Walkthrough - Governance & Regulation ([Link](https://tryhackme.com/room/cybergovernanceregulation)) 2025-04-09 !!!
+15. Walkthrough - OWASP Juice Shop ([Link](https://tryhackme.com/room/owaspjuiceshop)) 2025-04-10 !!!
 16. Challenge - Basic Pentesting ([Link](https://tryhackme.com/room/basicpentestingjt)) 2025-04-13
-17. Walkthrough - Threat Hunting: Introduction ([Link](https://tryhackme.com/room/introductiontothreathunting)) 2025-04-25
+17. Walkthrough - Threat Hunting: Introduction ([Link](https://tryhackme.com/room/introductiontothreathunting)) 2025-04-25 !!!
 18. Walkthrough - Incident Response Process ([Link](https://tryhackme.com/room/incidentresponseprocess)) 2025-04-25 !!!
 
 ## Tools
