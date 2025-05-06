@@ -19,7 +19,7 @@ The purpose of these write-ups is to log my progress with TryHackMe's various ro
 15. Walkthrough - OWASP Juice Shop ([Link](https://tryhackme.com/room/owaspjuiceshop)) 2025-04-10
 16. Challenge - Basic Pentesting ([Link](https://tryhackme.com/room/basicpentestingjt)) 2025-04-13
 17. Walkthrough - Threat Hunting: Introduction ([Link](https://tryhackme.com/room/introductiontothreathunting)) 2025-04-25
-17. Walkthrough - Incident Response Process ([Link](https://tryhackme.com/room/incidentresponseprocess)) 2025-04-25 !!!
+18. Walkthrough - Incident Response Process ([Link](https://tryhackme.com/room/incidentresponseprocess)) 2025-04-25 !!!
 
 ## Tools
 + Burb Suite ([Link](https://www.kali.org/tools/burpsuite/))
