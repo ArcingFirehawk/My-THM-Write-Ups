@@ -20,12 +20,14 @@ The purpose of these write-ups is to log my progress with TryHackMe's various ro
 16. Challenge - Basic Pentesting ([Link](https://tryhackme.com/room/basicpentestingjt)) 2025-04-13
 17. Walkthrough - Threat Hunting: Introduction ([Link](https://tryhackme.com/room/introductiontothreathunting)) 2025-04-25 !!!
 18. Walkthrough - Incident Response Process ([Link](https://tryhackme.com/room/incidentresponseprocess)) 2025-04-25 !!!
+19. Walkthrough - Intro to Digital Forensics ([Link](https://tryhackme.com/room/introdigitalforensics)) 2025-06-04 !!!
 
 ## Tools
 + Burb Suite ([Link](https://www.kali.org/tools/burpsuite/))
 + Crunch ([Link](https://www.kali.org/tools/crunch/))
 + DIRB ([Link](https://www.kali.org/tools/dirb/))
 + enum4linux ([Link](https://www.kali.org/tools/enum4linux/))
++ ExifTool: Reads and writes the metadata of various file types (e.g., JPEG).
 + Gobuster ([Link](https://www.kali.org/tools/gobuster/))
 + Hydra ([Link](https://www.kali.org/tools/hydra/)): Password cracker.
 + John ([Link](https://www.kali.org/tools/john/)): Password cracker.
@@ -36,6 +38,7 @@ The purpose of these write-ups is to log my progress with TryHackMe's various ro
 + Netcat ([Link](https://www.kali.org/tools/netcat/))
 + NMAP ([Link](https://www.kali.org/tools/nmap/)): Network mapper; used to discover open ports, active services, etc.
 + OWASP ZAP ([Link](https://www.kali.org/tools/zaproxy/))
++ pdfinfo: Outputs the metadata of a PDF file.
 + StegCracker ([Link](https://www.kali.org/tools/stegcracker/))
 + Steghide ([Link](https://www.kali.org/tools/steghide/))      
 
